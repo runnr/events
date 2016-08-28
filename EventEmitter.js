@@ -3,11 +3,13 @@
 const { Mixin } = require("mixwith");
 const events = require("events");
 
+const Dedupe = require("../helpers/Dedupe");
+
 /**
  * An EventEmitter that does not enumerate its internal properties.
  * Needed to prevent LokiJS from storing EventEmitter state data.
  */
-const EventEmitter = Mixin(superclass => {
+const EventEmitter = Dedupe(Mixin(superclass => {
 	class EventEmitter extends superclass {
 		constructor() {
 			super(...arguments);
@@ -45,6 +47,6 @@ const EventEmitter = Mixin(superclass => {
 	Object.assign(EventEmitter.prototype, events.prototype);
 
 	return EventEmitter;
-});
+}));
 
 module.exports = EventEmitter;
