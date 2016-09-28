@@ -1,6 +1,8 @@
 "use strict";
 
-const { Mixin, mix } = require("mixwith");
+const { mix } = require("mixwith");
+
+const MixinFactory = require("../helpers/MixinFactory");
 
 const EventEmitter = require("./EventEmitter");
 
@@ -13,7 +15,7 @@ const type = {
 	delete: prop => `${prop}Deleted`
 };
 
-module.exports = Object.assign((properties = []) => {
+const UpdateEmitter = MixinFactory((properties = []) => {
 	const definitions = {};
 
 	for(const property of properties) {
@@ -38,7 +40,7 @@ module.exports = Object.assign((properties = []) => {
 		};
 	}
 
-	return Mixin(superclass => {
+	return superclass => {
 		class UpdateEmitter extends mix(superclass).with(EventEmitter) {
 			[update](type, value) {
 				this.emit("update", type, value);
@@ -53,8 +55,12 @@ module.exports = Object.assign((properties = []) => {
 		Object.defineProperties(UpdateEmitter.prototype, definitions);
 
 		return UpdateEmitter;
-	});
-}, {
+	};
+});
+
+Object.assign(UpdateEmitter, {
 	update, type,
 	delete: del
 });
+
+module.exports = UpdateEmitter;
