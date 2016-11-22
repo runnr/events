@@ -1,0 +1,27 @@
+{
+	"name": "@runnr/events",
+	"version": "0.1.0",
+	"description": "Mixin based EventEmitter and UpdateEmitter implementation.",
+	"license": "GPL-3.0",
+	"author": {
+		"name": "Clemens Damke",
+		"email": "clemens@cortys.de",
+		"url": "http://www.cortys.de"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/runnr/events.git"
+	},
+	"engines": {
+		"node": "^6.5"
+	},
+	"main": "src/index.js",
+
+	"dependencies": {
+		"mixwith": "runnr/mixwith.js"
+	},
+	"devDependencies": {
+		"eslint": "3.10.2",
+		"eslint-config-cortys": "1.x"
+	}
+}
