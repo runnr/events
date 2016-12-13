@@ -1,8 +1,6 @@
 "use strict";
 
-const { mix } = require("mixwith");
-
-const MixinFactory = require("../helpers/MixinFactory");
+const { mix, MixinFactory } = require("@runnr/mixin");
 
 const EventEmitter = require("./EventEmitter");
 

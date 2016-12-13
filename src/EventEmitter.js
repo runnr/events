@@ -1,9 +1,7 @@
 "use strict";
 
-const { Mixin } = require("mixwith");
+const { Mixin, Dedupe } = require("@runnr/mixin");
 const events = require("events");
-
-const Dedupe = require("../helpers/Dedupe");
 
 /**
  * An EventEmitter that does not enumerate its internal properties.

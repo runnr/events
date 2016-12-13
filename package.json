@@ -18,10 +18,10 @@
 	"main": "src/index.js",
 
 	"dependencies": {
-		"mixwith": "runnr/mixwith.js"
+		"@runnr/mixin": "0.1.0"
 	},
 	"devDependencies": {
-		"eslint": "3.10.2",
+		"eslint": "3.12.1",
 		"eslint-config-cortys": "1.x"
 	}
 }
